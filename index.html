@@ -1,212 +1,56 @@
-<!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Arkom</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
+---
+layout: default
+---
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Sistem Memori</a></li>
-							<li><a href="#one">I/O Sistem</a></li>
-							<li><a href="#two">CPU</a></li>
-							<li><a href="#three">Profil</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+<div class="home container">
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+  <div class="page-heading">
+    <ul class="collapsible popout" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header favo"><i class="mdi mdi-coffee-to-go"></i>{{ site.favo }}<i class="mdi mdi-pin right teal-text hide-on-small-only"></i></div>
+        <div class="collapsible-body"><p>{{ site.descrpt }}</p></div>
+      </li>
+    </ul>
+  </div>
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Register</h1>
-							<p>Register adalah memori berkecepatan tinggi dan sangat kecil yang digunakan untuk menyimpan data dan mengakses intruksi yang sedang
-								diproses dalam memori.</p>
-							<ul class="actions">
-								<li><a href="Register.html" class="button scrolly">Learn more</a></li>
-							</ul>
+  <ul class="post-list">
+    <!-- This loops through the paginated posts -->
+    {% for post in paginator.posts %}
+      <li class="card-panel hoverable">
+        <span class="grey-text right">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 
-							<h1>Cache</h1>
-							<p>Cache Memory adalah jenis memori yang digunakan untuk menyimpan data yang sering digunakan. cache memory relatif kecil, tapi sangat cepat.</p>
-							<ul class="actions">
-								<li><a href="Cache.html" class="button scrolly">Learn more</a></li>
-							</ul>
+        <button data-target="{{ post.id | remove: '%' | replace: '/', '_' }}" class="waves-effect waves-light btn modal-trigger">View</button>
 
-							<h1>RAM</h1>
-							<p>RAM atau disebut sebagai memori utama, memori utama, atau memori sistem, Random Access Memory (RAM)
-								adalah sebuah perangkat keras yang memungkinkan informasi untuk disimpan dan diambil pada komputer.</p>
-							<ul class="actions">
-								<li><a href="ram.html" class="button scrolly">Learn more</a></li>
-							</ul>
+        <div id="{{ post.id | remove: '%' | replace: '/', '_' }}" class="modal modal-fixed-footer">
+          <div class="modal-content">
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.excerpt }}</p>
+          </div>
+          <div class="modal-footer">
+            <a href="{{ post.url | prepend: site.baseurl }}" class="waves-effect waves-teal btn-flat">Read more </a>
+            <button class="modal-action modal-close waves-effect waves-light btn-flat"><i class="mdi mdi-close"></i></button>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
 
-							<h1>Large Storage/Hard Disk</h1>
-							<p>Sebuah hard disk adalah benar-benar satu set ditumpuk "disk," seperti piringan hitam, memiliki data
-								yang tercatat elektromagnetik dalam lingkaran konsentris atau "trek" pada disk.</p>
-							<ul class="actions">
-								<li><a href="large storage.html" class="button scrolly">Learn more</a></li>
-							</ul>
-						</div>
-					</section>
+  <!-- Pagination links -->
+  <div class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="waves-effect waves-green btn teal left"><i class="mdi mdi-chevron-left white-text"></i></a>
+    {% else %}
+    <span class="btn disabled left"><i class="mdi mdi-chevron-left white-text"></i></span>
+    {% endif %}
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-							<div class="content">
-								<div class="inner">
-									<h2>Interface</h2>
-									<p>Input-Output antarmuka(interface) menyediakan metode untuk mentransfer informasi antara
-										penyimpanan internal dan perangkat I / O eksternal.</p>
-									<ul class="actions">
-										<li><a href="interface.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<div class="inner">
-									<h2>Device</h2>
-									<p>Perangkat periferal, juga dikenal sebagai perangkat komputer(Device), atau perangkat input / output,
-										salah satu dari berbagai perangkat (termasuk sensor) yang digunakan untuk memasukkan
-										informasi dan instruksi ke dalam komputer.</p>
-									<ul class="actions">
-										<li><a href="device.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<div class="inner">
-									<h2>Model</h2>
-									<p>Input-proses-output (IPO) model, atau pola input-proses-output, adalah pendekatan
-										yang digunakan secara luas dalam analisis sistem dan rekayasa perangkat lunak untuk
-										menggambarkan struktur dari program pengolahan informasi atau proses lainnya. </p>
-									<ul class="actions">
-										<li><a href="modelio.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section>
+    <div class="waves-effect waves-teal btn-flat lower-case page">Page: <span class="teal-text">{{ paginator.page }}</span> of {{ paginator.total_pages }}</div>
 
-				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h1>Arsitektur</h1>
-							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
-							</ul>
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="waves-effect waves-green btn teal right"><i class="mdi mdi-chevron-right white-text"></i></a>
+    {% else %}
+    <span class="btn disabled right"><i class="mdi mdi-chevron-right white-text"></i></a></li>
+    {% endif %}
+  </div>
 
-							<h1>Model</h1>
-							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
-							</ul>
-
-							<h1>Sejarah Teknologi</h1>
-							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
-							</ul>
-
-							<h1>Proses Pembuatan</h1>
-							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
-							</ul>
-
-							<h1>Chip CPU</h1>
-							<p>Just another fine responsive site template designed by <a href="http://html5up.net">HTML5 UP</a><br />
-							and released for free under the <a href="http://html5up.net/license">Creative Commons</a>.</p>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">Learn more</a></li>
-							</ul>
-						</div>
-					</section>
-
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Profil</h2>
-							<div class="split style1">
-								<section>
-										<div class="field half first">
-											<label for="name">Name : Akhmad Syarif</label>
-										</div>
-
-								</section>
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-											<span>Jln.Jaksa Agung,<br />
-											Kecamatan Tanjung,<br />
-											Tabalong</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="https://plus.google.com/u/1/118049436864010843563">akhmadsyarif04.arif@gmail.com</a>
-										</li>
-										<li>
-											<h3>Line</h3>
-											<span>akhmadsyarif04</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-											<ul class="icons">
-												<li><a href="https://www.facebook.com/syarif.likebmxinsyaalahforever" class="fa-facebook"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="fa-github"><span class="label">GitHub</span></a></li>
-												<li><a href="https://www.instagram.com/akhmadsyarif10/" class="fa-instagram"><span class="label">Instagram</span></a></li>
-											</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-	</body>
-</html>
+</div>

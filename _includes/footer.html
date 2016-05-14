@@ -1,38 +1,34 @@
-<footer class="site-footer">
 
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
+<footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Need More <i class="mdi mdi-coffee-to-go"></i> Nyasuh </a></h5>
+          <p class="grey-text text-lighten-4">
+              <i class="mdi mdi-coffee-to-go"> Coffee is a plant and the name of the drink that is made from this plant. The coffee plant is a bush or tree that can grow up to ten meters (about 32 feet) high, but is usually cut shorter. Coffee plants originally grew in Africa, and now also grow in South America, Central America and Southeast Asia. They are an important crop for the economies of many countries</i>
+          </p>
+        </div>
+        <div class="col l4 offset-12 s12 right">
+          <h5 class="white-text">Social</h5>
+          <ul>
+            {% if site.facebook_username %}
+            <li><a href="https://facebook.com/{{ site.facebook_username }}" class="white-text text-lighten-3 btn waves-effect waves-light teal darken-1"><i class="mdi mdi-facebook-box"></i>  Facebook</a></li>
+            {% endif %}
+            {% if site.twitter_username %}
+            <li><a href="https://twitter.com/{{ site.twitter_username }}" class="white-text text-lighten-3 btn waves-effect waves-light teal darken-1"><i class="mdi mdi-twitter-box"></i>  Twitter</a></li>
+            {% endif %}
+            {% if site.github_username %}
+            <li><a href="https://github.com/{{ site.github_username }}" class="white-text text-lighten-3 btn waves-effect waves-light teal darken-1"><i class="mdi mdi-github-box"></i>Github</a></li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
     </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Build with <i class="mdi mdi-coffee-to-go"></i> Nyasuh </a>
+        <a class="grey-text text-lighten-4 right waves-effect waves-green " <a href="http://nyasuh.github.io">nyasuh.github.io</a>
+      </div>
+    </div>
+  </footer>
 
-  </div>
-
-</footer>
