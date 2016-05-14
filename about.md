@@ -1,17 +1,15 @@
 ---
 layout: page
-title: ""
+title: About
 permalink: /about/
 ---
 
-<p align="center"><img itemprop="image" class="img-rounded" src="/assets/img/about.jpg" width="250" height="250"/></p>
+This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
 
-### This theme
+You can find the source code for the Jekyll new theme at:
+{% include icon-github.html username="jglovier" %} /
+[jekyll-new](https://github.com/jglovier/jekyll-new)
 
-This [jekyll](https://jekyllrb.com) theme is build with [materialize](http://materializecss.com).
-
-
-- - -
-### Personal information
-Email: {{ site.email }}
-- - -
+You can find the source code for Jekyll at
+{% include icon-github.html username="jekyll" %} /
+[jekyll](https://github.com/jekyll/jekyll)
